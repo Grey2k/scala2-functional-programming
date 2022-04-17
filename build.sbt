@@ -4,7 +4,7 @@ ThisBuild / scalaVersion := "2.13.8"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "scala2-sbt-template",
+    name := "scala2-functional-programming-workbook",
     // Common dependencies
     libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "2.1.1",
     // Command Line Parser - https://github.com/scopt/scopt

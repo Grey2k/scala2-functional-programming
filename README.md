@@ -1,3 +1,9 @@
+# Course Workbook
+
+## Week 1
+
+*sqrt* calculation with Newton's method
+
 # Scala 2 sbt project template
 
 ## What included?
