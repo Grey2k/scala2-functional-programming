@@ -1,8 +1,21 @@
+import scala.annotation.tailrec
+
 class Rational(x: Int, y: Int) {
-  def numerator   = x
-  def denominator = y
+  require(y > 0, "denominator must be positive")
+
+  @tailrec
+  private def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+  private val g                        = gcd(x, y)
+
+  val numerator   = x / g
+  val denominator = y / g
 
   override def toString = s"$numerator/$denominator"
+
+  def less(that: Rational): Boolean =
+    numerator * that.denominator < that.numerator * denominator
+
+  def max(that: Rational) = if (this.less(that)) that else this
 
   def add(that: Rational): Rational =
     new Rational(
@@ -53,3 +66,8 @@ makeString(addRational(new Rational(1, 4), new Rational(3, 5)))
 
 x.sub(y).sub(z)
 x.add(y).mul(z)
+
+x.max(y)
+x.less(z)
+
+// val strange = new Rational(1, 0)
